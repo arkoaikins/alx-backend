@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """
-BaseCaching module that all the other classes will inherit from
+BaseCaching module that all the other classes will 
+inherit from
 """
 
 
