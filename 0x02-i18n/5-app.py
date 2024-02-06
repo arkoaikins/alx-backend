@@ -9,7 +9,7 @@ task 3: Prametrize templates
 """
 from flask import Flask, render_template, request, g
 from flask_babel import Babel
-from typing import Union, Dict
+
 
 
 class Config:
@@ -34,23 +34,19 @@ users = {
 }
 
 
-def get_user() -> Union[Dict, None]:
+def get_user(user_id):
     """
     Gets user by id
     """
-    login_id = request.args.get('login_as')
-    if login_id:
-        return users.get(int(login_id))
-    return None
-
+    return users[user_id]
 
 @app.before_request
 def before_request() -> None:
     """
-    executed before all other functions.
+    executed before all other functions(gets user).
     """
-    user = get_user()
-    g.user = user
+    user_id = request.args.get('login_as')
+    g.user = get_user(int(user_id)) if user_id else None
 
 
 @babel.localeselector
