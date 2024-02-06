@@ -61,7 +61,8 @@ def get_locale():
 @app.route("/")
 def index():
     """display home page"""
-    return render_template("4-index.html")
+    user = g.user['name'] if g.user else None
+    return render_template("5-index.html", user=user)
 
 
 if __name__ == "__main__":
