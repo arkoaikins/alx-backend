@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """
-A basic flask app with a single route that renders to
+task 0: A basic flask app with a single route that renders to
 index.html template
-And use babel to help with default locale(lang) and timezone
+task 1:use babel to help with default locale(lang) and timezone
 """
 from flask import Flask, render_template
 from flask_babel import Babel
